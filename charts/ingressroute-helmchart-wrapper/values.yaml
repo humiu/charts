@@ -2,14 +2,14 @@
 namespace: ""
 
 # helmCharts:
-#     # the name field is optional and not recommended to use (better use namePrefix or nameSuffix)
+#     # The name field is optional and not recommended to use (better use namePrefix or nameSuffix).
 #   - name: whoami-test
 #     repo: https://cowboysysop.github.io/charts/
 #     chart: whoami
 helmCharts: []
 
 # ingressRoutes:
-#     # the name field is optional and not recommended to use (better use namePrefix or nameSuffix)
+#     # The name field is optional and not recommended to use (better use namePrefix or nameSuffix).
 #   - name: whoami-test-route
 #     entryPoints:
 #       - websecure
@@ -19,6 +19,8 @@ helmCharts: []
 #         middlewares:
 #           - name: redirect-www
 #         services:
+#             # The name field is optional. If no name is provided the release name will be used.
+#             # "namePrefix" and "nameSuffix" are working as well and will be prefixed / suffixed to the release name.
 #           - name: whoami-test
 #             port: 80
 #     tls:
