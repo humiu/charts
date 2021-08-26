@@ -1,0 +1,31 @@
+
+namespace: ""
+
+# helmCharts:
+#     # the name field is optional and not recommended to use (better use namePrefix or nameSuffix)
+#   - name: whoami-test
+#     repo: https://cowboysysop.github.io/charts/
+#     chart: whoami
+helmCharts: []
+
+# ingressRoutes:
+#     # the name field is optional and not recommended to use (better use namePrefix or nameSuffix)
+#   - name: whoami-test-route
+#     entryPoints:
+#       - websecure
+#     routes:
+#       - kind: Rule
+#         match: Host(`whoami.example.com`)
+#         middlewares:
+#           - name: redirect-www
+#         services:
+#           - name: whoami-test
+#             port: 80
+#     tls:
+#       certResolver: letsencrypt
+#       domains:
+#         - main: whoami.example.com
+#           sans:
+#             - dev.whoami.example.com
+ingressRoutes: []
+

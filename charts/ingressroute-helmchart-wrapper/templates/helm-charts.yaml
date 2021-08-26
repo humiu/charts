@@ -1,0 +1,28 @@
+
+{{ if not .Values.namespace }}
+  {{ fail "The namespace field is mandatory. Set it either with \"--set namespace=<MY_NAMESPACE>\" or by providing a values.yaml file that contains a namespace variable!" }}
+{{ end }}
+
+{{ range .Values.helmCharts }}
+
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+  namespace: kube-system
+spec:
+  {{- if .repo }}
+  repo: {{ .repo | quote }}
+  {{- end }}
+  chart: {{ .chart | quote }}
+  {{- if .version }}
+  version: {{ .version | quote }}
+  {{- end }}
+  targetNamespace: {{ $.Values.namespace | quote }}
+  {{- if .values }}
+  valuesContent: {{ toYaml .values | quote }}
+  {{- end }}
+
+{{ end }}
+

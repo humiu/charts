@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 0.10.6
+description: Web publishing platform for building blogs and websites.
+engine: gotpl
+home: https://github.com/humiu/charts/tree/main/charts/ingressroute-helmchart-wrapper
+keywords:
+  - helm
+  - helm-controller
+  - helmchart
+  - traefik
+  - ingressroute
+maintainers:
+  - name: Paul Miu
+    email: paul@humiu.io
+name: ingressroute-helmchart-wrapper
+sources:
+  - https://github.com/k3s-io/helm-controller
+  - https://github.com/traefik/traefik-helm-chart
+version: 0.0.1
+

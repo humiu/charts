@@ -1,0 +1,30 @@
+
+{{ range .Values.ingressRoutes }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+  namespace: {{ $.Values.namespace | quote }}
+spec:
+  {{- if .entryPoints }}
+  entryPoints: {{ toYaml .entryPoints | nindent 4 }}
+  {{- end }}
+  routes:
+    {{- range .routes }}
+    - {{- omit . "services" | toYaml | nindent 6 }}
+      {{- if .services }}
+      services:
+        {{- range .services }}
+        - {{ omit . "name" "namePrefix" "nameSuffix" | toYaml | nindent 10 }}
+          name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- if .tls }}
+  tls: {{ toYaml .tls | nindent 4 }}
+  {{- end }}
+
+{{ end }}
+
