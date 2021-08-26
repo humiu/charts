@@ -14,7 +14,7 @@ the latest versions of the packages. You can then run `helm search repo humiu` t
 
 To install the ingressroute-helmchart-wrapper chart:
 
-1.  Create a `values.yaml` file (you can use [that one](humiu/charts/blob/main/charts/ingressroute-helmchart-wrapper/values.yaml) as a template).
+1.  Create a `values.yaml` file (you can use [that one](charts/ingressroute-helmchart-wrapper/values.yaml) as a template).
 
 2.  Install the the ingressroute-helmchart-wrapper chart with your `values.yaml` file:
 
