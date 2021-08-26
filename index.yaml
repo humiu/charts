@@ -1,0 +1,26 @@
+apiVersion: v1
+entries:
+  ingressroute-helmchart-wrapper:
+  - apiVersion: v2
+    appVersion: 0.10.6
+    created: "2021-08-26T19:49:27.432184592Z"
+    description: Web publishing platform for building blogs and websites.
+    digest: 5c3d60bbcf38761dd78f30f162967827be2c9d2b7b137aec5c0ba1cac1e3d869
+    home: https://github.com/humiu/charts/tree/main/charts/ingressroute-helmchart-wrapper
+    keywords:
+    - helm
+    - helm-controller
+    - helmchart
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: ingressroute-helmchart-wrapper
+    sources:
+    - https://github.com/k3s-io/helm-controller
+    - https://github.com/traefik/traefik-helm-chart
+    urls:
+    - https://github.com/humiu/charts/releases/download/ingressroute-helmchart-wrapper-0.0.1/ingressroute-helmchart-wrapper-0.0.1.tgz
+    version: 0.0.1
+generated: "2021-08-26T19:49:27.432189992Z"
