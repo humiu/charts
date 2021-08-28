@@ -1,0 +1,13 @@
+
+{{ range .Values.serversTransports }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: ServersTransport
+metadata:
+  name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+  namespace: {{ $.Values.namespace | quote }}
+spec:
+  {{- omit . "name" "namePrefix" "nameSuffix" | toYaml | nindent 2 }}
+
+{{ end }}

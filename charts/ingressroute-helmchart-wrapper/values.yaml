@@ -1,14 +1,16 @@
 namespace: ""
 
+# Helm Controller HelmChart (https://rancher.com/docs/k3s/latest/en/helm/#using-the-helm-crd)
 # helmCharts:
-#     # The name field is optional and not recommended to use (better use namePrefix or nameSuffix).
+#     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
 #   - name: whoami-test
 #     repo: https://cowboysysop.github.io/charts/
 #     chart: whoami
 helmCharts: []
 
+# Traefik Middleware (https://doc.traefik.io/traefik/middlewares/overview/)
 # middlewares:
-#     # The name field is optional and not recommended to use (better use namePrefix or nameSuffix).
+#     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
 #   - name: redirect-to-non-www
 #     redirectRegex:
 #       regex: ^https?://www.(.*)
@@ -19,8 +21,27 @@ helmCharts: []
 #         X-Forwarded-Proto: "https"
 middlewares: []
 
+# Traefik ServersTransport (https://doc.traefik.io/traefik/routing/overview/#transport-configuration)
+# serversTransports:
+#     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
+#   - name: mytransport
+#     serverName: foobar
+#     insecureSkipVerify: true
+#     rootCAsSecrets:
+#       - foobar
+#     certificatesSecrets:
+#       - foobar
+#     maxIdleConnsPerHost: 1
+#     forwardingTimeouts:
+#       dialTimeout: 42s
+#       responseHeaderTimeout: 42s
+#       idleConnTimeout: 42s
+#     disableHTTP2: true
+serversTransports: []
+
+# Traefik IngressRoute (https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute)
 # ingressRoutes:
-#     # The name field is optional and not recommended to use (better use namePrefix or nameSuffix).
+#     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
 #   - name: whoami-test-route
 #     entryPoints:
 #       - websecure
@@ -37,6 +58,11 @@ middlewares: []
 #             # "namePrefix" and "nameSuffix" are working as well and will be prefixed / suffixed to the release name.
 #           - name: whoami-test
 #             port: 80
+#             # The "serversTransport" field is optional and maximum one serversTransport can be added per service.
+#             # Caution: This is different from the official Traefik implementation! Because the name cannot be specified directly
+#             # as value of "serversTransport" but must be a child of either "name", "namePrefix" or "nameSuffix"!
+#             serversTransport:
+#               name: test-it
 #     tls:
 #       certResolver: letsencrypt
 #       domains:
