@@ -49,7 +49,7 @@ serversTransports: []
 #       - kind: Rule
 #         match: Host(`whoami.example.com`)
 #         middlewares:
-#           # An empty name will be replace by the release name of the helm chart.
+#           # An empty name will be replaced by the release name of the helm chart.
 #           # That's especially useful when there's only one middleware and no "name", "namePrefix" and "nameSuffix" is provided.
 #           # "name", "namePrefix" and "nameSuffix" are available here as well (like with all the other "name" fields in this chart).
 #           - name: ""
@@ -59,8 +59,10 @@ serversTransports: []
 #           - name: whoami-test
 #             port: 80
 #             # The "serversTransport" field is optional and maximum one serversTransport can be added per service.
-#             # Caution: This is different from the official Traefik implementation! Because the name cannot be specified directly
+#             # CAUTION: This is different from the official Traefik implementation! Because the name cannot be specified directly
 #             # as value of "serversTransport" but must be a child of either "name", "namePrefix" or "nameSuffix"!
+#             # The only exception is if the "serversTransport" value is an empty string.
+#             # In that case the value will be replaced by the release name of the helm chart.
 #             serversTransport:
 #               name: test-it
 #     tls:

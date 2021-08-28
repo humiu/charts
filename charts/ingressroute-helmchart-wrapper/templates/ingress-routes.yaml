@@ -23,10 +23,14 @@ spec:
       {{- if .services }}
       services:
         {{- range .services }}
-        - {{ omit . "name" "namePrefix" "nameSuffix" "serversTransport" | toYaml | nindent 10 }}
+        - {{- omit . "name" "namePrefix" "nameSuffix" "serversTransport" | toYaml | nindent 10 }}
           name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+          {{- if hasKey . "serversTransport" }}
           {{- if .serversTransport }}
           serversTransport: {{ .serversTransport.name | default ( print ( .serversTransport.namePrefix | default "" ) $.Release.Name ( .serversTransport.nameSuffix | default "" ) ) | quote }}
+          {{- else }}
+          serversTransport: {{ $.Release.Name | quote }}
+          {{- end }}
           {{- end }}
         {{- end }}
       {{- end }}
