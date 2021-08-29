@@ -17,7 +17,8 @@ spec:
   {{- end }}
   targetNamespace: {{ template "namespace" $ }}
   {{- if .values }}
-  valuesContent: {{ toYaml .values | quote }}
+  valuesContent: |
+    {{- toYaml .values | nindent 4 }}
   {{- end }}
 
 {{ end }}

@@ -16,6 +16,13 @@ namespace:
 #   - name: whoami-test
 #     repo: https://cowboysysop.github.io/charts/
 #     chart: whoami
+#     version: 2.5.0
+#     values:
+#       replicaCount: 2
+#       podLabels:
+#         "env": "test"
+#       ingress:
+#         enabled: false
 helmCharts: []
 
 # The following configurations will generate Traefik CRD resources.

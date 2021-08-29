@@ -16,4 +16,4 @@ name: traefik-helmchart-wrapper
 sources:
   - https://github.com/k3s-io/helm-controller
   - https://github.com/traefik/traefik-helm-chart
-version: 0.5.0
+version: 0.5.1
