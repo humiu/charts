@@ -38,7 +38,7 @@ spec:
       {{- end }}
     {{- end }}
   {{- if .tls }}
-  tls: {{ include "toYaml" .tls | nindent 4 }}
+  tls: {{ tpl .tls $ | toYaml .tls | nindent 4 }}
   {{- end }}
 
 {{ end }}
