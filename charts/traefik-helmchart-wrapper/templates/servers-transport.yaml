@@ -5,7 +5,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: ServersTransport
 metadata:
-  name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+  name: {{ template "name" ( dict "value" . "context" $ ) }}
   namespace: {{ template "namespace" $ }}
 spec:
   {{- omit . "name" "namePrefix" "nameSuffix" | toYaml | nindent 2 }}

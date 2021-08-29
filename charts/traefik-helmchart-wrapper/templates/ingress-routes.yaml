@@ -5,7 +5,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+  name: {{ template "name" ( dict "value" . "context" $ ) }}
   namespace: {{ template "namespace" $ }}
 spec:
   {{- if .entryPoints }}
@@ -17,18 +17,18 @@ spec:
       {{- if .middlewares }}
       middlewares:
         {{- range .middlewares }}
-        - name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+        - name: {{ template "name" ( dict "value" . "context" $ ) }}
         {{- end }}
       {{- end }}
       {{- if .services }}
       services:
         {{- range .services }}
         - {{- omit . "name" "namePrefix" "nameSuffix" "serversTransport" | toYaml | nindent 10 }}
-          name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+          name: {{ template "name" ( dict "value" . "context" $ ) }}
           {{- if hasKey . "serversTransport" }}
           {{- if .serversTransport }}
           {{- with .serversTransport }}
-          serversTransport: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+          serversTransport: {{ template "name" ( dict "value" . "context" $ ) }}
           {{- end }}
           {{- else }}
           serversTransport: {{ $.Release.Name | quote }}

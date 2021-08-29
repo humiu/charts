@@ -5,7 +5,7 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
-  name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+  name: {{ template "name" ( dict "value" . "context" $ ) }}
   namespace: kube-system
 spec:
   {{- if .repo }}

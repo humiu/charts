@@ -1,7 +1,8 @@
 apiVersion: v2
+version: 0.5.2
 appVersion: 0.10.6
+name: traefik-helmchart-wrapper
 description: Helm chart wrapper around the Helm Controller HelmChart CRD and the Traefik CRD resources
-engine: gotpl
 home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
 keywords:
   - helm
@@ -9,11 +10,10 @@ keywords:
   - helmchart
   - traefik
   - ingressroute
-maintainers:
-  - name: Paul Miu
-    email: paul@humiu.io
-name: traefik-helmchart-wrapper
 sources:
   - https://github.com/k3s-io/helm-controller
   - https://github.com/traefik/traefik-helm-chart
-version: 0.5.1
+maintainers:
+  - name: Paul Miu
+    email: paul@humiu.io
+engine: gotpl

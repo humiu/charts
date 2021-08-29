@@ -6,5 +6,5 @@
 
 {{/* Generate the name for a resource. */}}
 {{- define "name" }}
-{{- .resource.name | default ( print ( .resource.namePrefix | default "" ) .Release.Name ( .resource.nameSuffix | default "" ) ) | quote }}
+{{- .value.name | default ( print ( .value.namePrefix | default "" ) .context.Release.Name ( .value.nameSuffix | default "" ) ) | quote }}
 {{- end }}
