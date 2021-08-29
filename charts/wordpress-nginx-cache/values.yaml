@@ -1,0 +1,54 @@
+wordpress:
+  image:
+    repository: bitnami/wordpress-nginx
+    tag: 5.8.0
+
+  extraVolumes:
+    - name: nginx-fastcgi-config
+      configMap:
+        name: "{{ .Release.Name }}-fastcgi-config"
+
+  extraVolumeMounts:
+    - name: nginx-fastcgi-config
+      mountPath: /opt/bitnami/nginx/conf/server_blocks/fastcgi-cache.conf
+      subPath: fastcgi-cache.conf
+
+  extraContainerPorts:
+    - name: http-cached
+      containerPort: 9090
+
+  service:
+    type: ClusterIP
+    extraPorts:
+      - name: http-cached
+        port: 9090
+        protocol: TCP
+        targetPort: http-cached
+
+  allowEmptyPassword: false
+  wordpressUsername: admin
+  wordpressPassword: admin
+
+  wordpressScheme: https
+  livenessProbe:
+    httpGet:
+      port: https
+      scheme: HTTPS
+  readinessProbe:
+    enabled: false
+
+  wordpressConfigureCache: true
+  memcached:
+    enabled: true
+
+  # wordpressSkipInstall: true
+
+  # extraEnvVars:
+  #   - name: WORDPRESS_SMTP_HOST
+  #     value: "https://your-smtp-server.com"
+  #   - name: WORDPRESS_SMTP_PORT
+  #     value: "587"
+  #   - name: WORDPRESS_SMTP_USER
+  #     value: "user@email-address.com"
+  #   - name: WORDPRESS_SMTP_PASSWORD
+  #     value: "super-strong-password"

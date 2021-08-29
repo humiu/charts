@@ -1,0 +1,34 @@
+apiVersion: v2
+version: 0.0.1
+appVersion: 5.8.0
+name: wordpress-nginx-cache
+description: Wordpress with an NGINX FastCGI caching layer in front of it.
+home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+keywords:
+  - blog
+  - cms
+  - php
+  - web
+  - application
+  - wordpress
+  - nginx
+  - fastcgi
+  - cache
+  - cached
+  - wordpress cache
+  - nginx cache
+  - wordpress nginx cache
+  - nginx fastcgi
+  - fastcgi cache
+dependencies:
+  - name: wordpress
+    repository: https://charts.bitnami.com/bitnami
+    version: 12.x.x
+sources:
+  - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+  - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+  - https://wordpress.org/
+maintainers:
+  - name: Paul Miu
+    email: paul@humiu.io
+engine: gotpl
