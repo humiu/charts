@@ -1,11 +1,15 @@
 
-{{ if not ( lookup "v1" "Namespace" "" ( .Values.namespace ) ) }}
+{{ if not ( lookup "v1" "Namespace" "" ( include "namespace" $ ) ) }}
+{{ with .Values.namespace }}
 
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: {{ .Values.namespace | quote }}
+  name: {{ template "namespace" $ }}
+  {{- if .resourcePolicy }}
   annotations:
-    "helm.sh/resource-policy": keep
+    "helm.sh/resource-policy": {{ .resourcePolicy }}
+  {{- end }}
 
+{{ end }}
 {{ end }}

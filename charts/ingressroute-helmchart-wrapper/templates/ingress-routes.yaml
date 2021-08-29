@@ -1,12 +1,12 @@
 
-{{ range .Values.ingressRoutes }}
+{{ range .Values.traefik.ingressRoutes }}
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
-  namespace: {{ $.Values.namespace | quote }}
+  name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+  namespace: {{ template "namespace" $ }}
 spec:
   {{- if .entryPoints }}
   entryPoints: {{ toYaml .entryPoints | nindent 4 }}
@@ -17,17 +17,19 @@ spec:
       {{- if .middlewares }}
       middlewares:
         {{- range .middlewares }}
-        - name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+        - name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
         {{- end }}
       {{- end }}
       {{- if .services }}
       services:
         {{- range .services }}
         - {{- omit . "name" "namePrefix" "nameSuffix" "serversTransport" | toYaml | nindent 10 }}
-          name: {{ .name | default ( print ( .namePrefix | default "" ) $.Release.Name ( .nameSuffix | default "" ) ) | quote }}
+          name: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
           {{- if hasKey . "serversTransport" }}
           {{- if .serversTransport }}
-          serversTransport: {{ .serversTransport.name | default ( print ( .serversTransport.namePrefix | default "" ) $.Release.Name ( .serversTransport.nameSuffix | default "" ) ) | quote }}
+          {{- with .serversTransport }}
+          serversTransport: {{ template "name" ( dict "resource" . "Release" $.Release ) }}
+          {{- end }}
           {{- else }}
           serversTransport: {{ $.Release.Name | quote }}
           {{- end }}
