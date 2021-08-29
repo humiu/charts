@@ -23,7 +23,9 @@ spec:
         repo: https://humiu.github.io/charts
         chart: wordpress-nginx-cache
         values:
-          wordpress: {{ toYaml $.Values.wordpressValues | nindent 12 }}
+          wordpress:
+            fullnameOverride: {{ $.Release.Name }}-{{ .name }}
+            {{- toYaml $.Values.wordpressValues | nindent 12 }}
       {{- end }}
 
     traefik:
