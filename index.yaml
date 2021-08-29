@@ -3,10 +3,10 @@ entries:
   traefik-helmchart-wrapper:
   - apiVersion: v2
     appVersion: 0.10.6
-    created: "2021-08-29T07:06:00.585041476Z"
+    created: "2021-08-29T12:41:27.965087586Z"
     description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
       Traefik CRD resources
-    digest: c00e4ee9f7f23a3a9b8521b818be58db330c3046d73e28d3490e8a99d56ccb6e
+    digest: 5dc1cfcfa3bf6cc70880ccc92ba187d6e6cfb8a846a8ae56bd50a24bacf073ac
     home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
     keywords:
     - helm
@@ -22,29 +22,44 @@ entries:
     - https://github.com/k3s-io/helm-controller
     - https://github.com/traefik/traefik-helm-chart
     urls:
-    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.5.1/traefik-helmchart-wrapper-0.5.1.tgz
-    version: 0.5.1
+    - https://humiu.github.io/charts/traefik-helmchart-wrapper-0.5.2.tgz
+    version: 0.5.2
+  wordpress-nginx-cache:
   - apiVersion: v2
-    appVersion: 0.10.6
-    created: "2021-08-29T05:42:55.847078435Z"
-    description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
-      Traefik CRD resources
-    digest: f5c0ef20713f4edbef6935c4fbf448f6ce0674be594befe2e736d80a6a50ac24
-    home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+    appVersion: 5.8.0
+    created: "2021-08-29T12:41:27.975366307Z"
+    dependencies:
+    - name: wordpress
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.x.x
+    description: Wordpress with an NGINX FastCGI caching layer in front of it.
+    digest: 464fdf28d566b3080149f2f72bbe1f6c8e76ffea41864d0ab8a41181022f99db
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
     keywords:
-    - helm
-    - helm-controller
-    - helmchart
-    - traefik
-    - ingressroute
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - nginx
+    - fastcgi
+    - cache
+    - cached
+    - wordpress cache
+    - nginx cache
+    - wordpress nginx cache
+    - nginx fastcgi
+    - fastcgi cache
     maintainers:
     - email: paul@humiu.io
       name: Paul Miu
-    name: traefik-helmchart-wrapper
+    name: wordpress-nginx-cache
     sources:
-    - https://github.com/k3s-io/helm-controller
-    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
     urls:
-    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.5.0/traefik-helmchart-wrapper-0.5.0.tgz
-    version: 0.5.0
-generated: "2021-08-29T07:06:00.585054176Z"
+    - https://humiu.github.io/charts/wordpress-nginx-cache-0.0.1.tgz
+    version: 0.0.1
+generated: "2021-08-29T12:41:27.964548338Z"
