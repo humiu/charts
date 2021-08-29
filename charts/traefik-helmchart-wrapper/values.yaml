@@ -1,3 +1,6 @@
+# The namespace in which the resources will be installed.
+# You can't use the `--namespace` flag on `helm install` because the helm controller requires the "HelmChart" CRD(s) to be installed in the
+# "kube-system" namespace and using the `--namespace` flag would prevent a multi namespace installation and the installation would fail.
 namespace:
   # The "name" field is optional. If empty or not provided the helm release name will be used instead.
   # Instead of providing the full namespace you can also use "namePrefix" or "nameSuffix" to use the helm release name and prefix and/or suffix.
