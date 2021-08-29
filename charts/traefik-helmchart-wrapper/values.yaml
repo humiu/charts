@@ -12,7 +12,7 @@ namespace:
 
 # Helm Controller HelmChart (https://rancher.com/docs/k3s/latest/en/helm/#using-the-helm-crd)
 # helmCharts:
-#     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
+#     # The "name" field is optional and not recommended to use (better use "namePrefix" or "nameSuffix").
 #   - name: whoami-test
 #     repo: https://cowboysysop.github.io/charts/
 #     chart: whoami
@@ -31,7 +31,7 @@ helmCharts: []
 traefik:
   # Traefik Middleware (https://doc.traefik.io/traefik/middlewares/overview/)
   # middlewares:
-  #     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
+  #     # The "name" field is optional and not recommended to use (better use "namePrefix" or "nameSuffix").
   #   - name: redirect-to-non-www
   #     redirectRegex:
   #       regex: ^https?://www.(.*)
@@ -44,7 +44,7 @@ traefik:
 
   # Traefik ServersTransport (https://doc.traefik.io/traefik/routing/overview/#transport-configuration)
   # serversTransports:
-  #     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
+  #     # The "name" field is optional and not recommended to use (better use "namePrefix" or "nameSuffix").
   #   - name: mytransport
   #     serverName: foobar
   #     insecureSkipVerify: true
@@ -62,7 +62,7 @@ traefik:
 
   # Traefik IngressRoute (https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute)
   # ingressRoutes:
-  #     # The "name" field is optional and not recommended to use (better use namePrefix or nameSuffix).
+  #     # The "name" field is optional and not recommended to use (better use "namePrefix" or "nameSuffix").
   #   - name: whoami-test-route
   #     entryPoints:
   #       - websecure
