@@ -25,5 +25,5 @@ helm install helm-wrapper humiu/traefik-helmchart-wrapper -f ./values.yaml
 To uninstall the chart:
 
 ```bash
-helm delete helm-wrapper
+helm uninstall helm-wrapper
 ```

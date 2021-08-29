@@ -1,4 +1,4 @@
-## Helm chart wrapper around the [Helm Controller](https://rancher.com/docs/k3s/latest/en/helm/) [HelmChart](https://rancher.com/docs/k3s/latest/en/helm/#using-the-helm-crd) CRD and the [Traefik](https://traefik.io/) [CRD resources](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/)
+## Helm chart wrapper around the [Helm Controller](https://github.com/k3s-io/helm-controller) [HelmChart CRD](https://rancher.com/docs/k3s/latest/en/helm/#using-the-helm-crd) and the [Traefik](https://traefik.io/) [CRD resources](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/)
 
 If you use [Traefik](https://traefik.io/) as a router in your kubernetes cluster you can use this helm chart to expose any other helm chart application(s) out there with Traefiks [CRD resources](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/).
 
@@ -10,6 +10,10 @@ To be able to use this helm chart the following applications must be setup and r
 - [Traefik](https://github.com/traefik/traefik-helm-chart)
 
 These dependencies are already pre-installed in [k3s](https://k3s.io/) clusters.
+
+### Configuration
+
+Have a look into the [`values.yaml` file](values.yaml) to see all the configuration options.
 
 ### Usage
 
@@ -27,7 +31,7 @@ the latest versions of the packages. You can then run `helm search repo humiu` t
 
 To install the traefik-helmchart-wrapper chart:
 
-1.  Create a `values.yaml` file (you can use [that one](charts/traefik-helmchart-wrapper/values.yaml) as a template).
+1.  Create a `values.yaml` file (you can use [that one](values.yaml) as a template).
 
 2.  Install the the traefik-helmchart-wrapper chart with your `values.yaml` file:
 
@@ -38,9 +42,5 @@ helm install helm-wrapper humiu/traefik-helmchart-wrapper -f ./values.yaml
 To uninstall the chart:
 
 ```bash
-helm delete helm-wrapper
+helm uninstall helm-wrapper
 ```
-
-### Configuration
-
-Have a look into the [`values.yaml` file](charts/traefik-helmchart-wrapper/values.yaml) to see all the configuration options.
