@@ -27,6 +27,43 @@ entries:
   wordpress-nginx-cache:
   - apiVersion: v2
     appVersion: 5.8.0
+    created: "2021-08-29T13:37:55.902854838Z"
+    dependencies:
+    - name: wordpress
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.x.x
+    description: Wordpress with an NGINX FastCGI caching layer in front of it.
+    digest: 0168304ed4984cca221f36cc94937fc74a2f5d98ec75181e34b2560b4316e209
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - nginx
+    - fastcgi
+    - cache
+    - cached
+    - wordpress cache
+    - nginx cache
+    - wordpress nginx cache
+    - nginx fastcgi
+    - fastcgi cache
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-nginx-cache
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.1.0/wordpress-nginx-cache-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 5.8.0
     created: "2021-08-29T12:55:36.193172484Z"
     dependencies:
     - name: wordpress
@@ -62,4 +99,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.0.2/wordpress-nginx-cache-0.0.2.tgz
     version: 0.0.2
-generated: "2021-08-29T12:55:36.193179084Z"
+generated: "2021-08-29T13:37:55.902866738Z"
