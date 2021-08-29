@@ -4,6 +4,7 @@ appVersion: 5.8.0
 name: wordpress-nginx-cache
 description: Wordpress with an NGINX FastCGI caching layer in front of it.
 home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+type: application
 keywords:
   - blog
   - cms

@@ -1,9 +1,10 @@
 apiVersion: v2
-version: 0.5.3
+version: 0.5.4
 appVersion: 0.10.6
 name: traefik-helmchart-wrapper
 description: Helm chart wrapper around the Helm Controller HelmChart CRD and the Traefik CRD resources
 home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+type: library
 keywords:
   - helm
   - helm-controller
