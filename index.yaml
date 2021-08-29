@@ -3,6 +3,30 @@ entries:
   traefik-helmchart-wrapper:
   - apiVersion: v2
     appVersion: 0.10.6
+    created: "2021-08-29T16:48:05.242747604Z"
+    description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
+      Traefik CRD resources
+    digest: b2f7428580cdf0fad95a668065f6eddc2dc9e5708f0be3afa1315dc05e23c4ee
+    home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+    keywords:
+    - helm
+    - helm-controller
+    - helmchart
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: traefik-helmchart-wrapper
+    sources:
+    - https://github.com/k3s-io/helm-controller
+    - https://github.com/traefik/traefik-helm-chart
+    type: library
+    urls:
+    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.5.5/traefik-helmchart-wrapper-0.5.5.tgz
+    version: 0.5.5
+  - apiVersion: v2
+    appVersion: 0.10.6
     created: "2021-08-29T12:55:36.051147299Z"
     description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
       Traefik CRD resources
@@ -99,4 +123,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.0.2/wordpress-nginx-cache-0.0.2.tgz
     version: 0.0.2
-generated: "2021-08-29T13:37:55.902866738Z"
+generated: "2021-08-29T16:48:05.242757304Z"
