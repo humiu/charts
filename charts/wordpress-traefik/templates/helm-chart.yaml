@@ -1,0 +1,77 @@
+
+{{- with .Values }}
+
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: {{ template "name" ( dict "value" . "context" $ ) }}
+  namespace: kube-system
+spec:
+  repo: https://humiu.github.io/charts
+  chart: traefik-helmchart-wrapper
+  version: {{ .wordpressNginxCache.version | quote }}
+  targetNamespace: kube-system
+  valuesContent: |
+
+    namespace:
+      create: false
+      name: {{ template "namespace" $ }}
+
+    helmCharts:
+      {{- range .environments }}
+      - nameSuffix: -{{ .name }}
+        repo: https://humiu.github.io/charts
+        chart: wordpress-nginx-cache
+        values:
+          wordpress: {{ toYaml $.Values.wordpressValues | nindent 12 }}
+      {{- end }}
+
+    traefik:
+      ingressRoutes:
+        {{- range .environments }}
+        {{- $subdomain := ( empty .subdomain ) | ternary "" ( print .subdomain "." ) }}
+        {{- $domain := print $subdomain $.Values.domain }}
+        - nameSuffix: -{{ .name }}
+          entryPoints:
+            - websecure
+          routes:
+            - kind: Rule
+              match: HostRegexp(`{host:(www.)?}{{ $domain }}`)
+              middlewares:
+                - nameSuffix: "-redirect-www"
+              services:
+                - nameSuffix: -{{ .name }}
+                  port: 9090
+                  scheme: https
+                  serversTransport:
+                    nameSuffix: -no-cert-check
+            - kind: Rule
+              match: HostRegexp(`{host:(www.)?}nocache.{{ $domain }}`)
+              middlewares:
+                - nameSuffix: "-redirect-www"
+              services:
+                - nameSuffix: -{{ .name }}
+                  port: 443
+                  scheme: https
+                  serversTransport:
+                    nameSuffix: -no-cert-check
+          tls:
+            certResolver: letsencrypt
+            domains:
+              - main: {{ $domain }}
+                sans:
+                  - nocache.{{ $domain }}
+        {{- end }}
+
+      middlewares:
+        - nameSuffix: -redirect-www
+          redirectRegex:
+            regex: ^https?://www.(.*)
+            replacement: https://${1}
+            permanent: true
+
+      serversTransports:
+        - nameSuffix: -no-cert-check
+          insecureSkipVerify: true
+
+{{- end }}

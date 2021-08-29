@@ -1,0 +1,26 @@
+apiVersion: v2
+version: 0.0.3
+appVersion: 5.8.0
+name: wordpress-traefik
+description: Wordpress with Traefik CRD resources to expose it.
+home: https://github.com/humiu/charts/tree/main/charts/wordpress-traefik
+type: application
+keywords:
+  - blog
+  - cms
+  - php
+  - web
+  - application
+  - wordpress
+  - traefik
+  - ingressroute
+sources:
+  - https://github.com/traefik/traefik-helm-chart
+  - https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+  - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+  - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+  - https://wordpress.org/
+maintainers:
+  - name: Paul Miu
+    email: paul@humiu.io
+engine: gotpl

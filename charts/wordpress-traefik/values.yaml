@@ -1,0 +1,25 @@
+# The namespace in which the resources will be installed.
+# You can't use the `--namespace` flag on `helm install` because the helm controller requires the "HelmChart" CRD(s) to be installed in the
+# "kube-system" namespace and using the `--namespace` flag would prevent a multi namespace installation and the installation would fail.
+namespace:
+  # The "name" field is optional. If empty or not provided the helm release name will be used instead.
+  # Instead of providing the full namespace you can also use "namePrefix" or "nameSuffix" to use the helm release name and prefix and/or suffix.
+  name: ""
+  # The "resourcePolicy" field is optional. If it's set to "keep" the namespace WILL NOT be deleted when the chart is being uninstalled.
+  # If resourcePolicy is set to an empty string ("") the namespace WILL BE DELETED on uninstall! Only do this if your helm chart is the
+  # only application in this namespace or when you're 100% sure that you want to delete all other resources in this namespace as well!
+  resourcePolicy: keep
+
+wordpressNginxCache:
+  version: 0.6.0
+
+wordpressValues:
+  wordpressUsername: user
+  wordpressPassword: password
+
+domain: example.com
+
+environments:
+  - name: prod
+  # - name: staging
+  #   subdomain: test
