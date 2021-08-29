@@ -37,9 +37,9 @@ wordpress:
   readinessProbe:
     enabled: false
 
-  wordpressConfigureCache: true
+  wordpressConfigureCache: false
   memcached:
-    enabled: true
+    enabled: false
 
   # wordpressSkipInstall: true
 

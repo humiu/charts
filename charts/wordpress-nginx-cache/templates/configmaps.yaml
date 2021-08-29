@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-fastcgi-config
-  namespace: test
+  namespace: {{ .Release.Namespace }}
 data:
   fastcgi-cache.conf: |
     # Fix failing redirect issue. See here: https://github.com/bitnami/bitnami-docker-wordpress-nginx/issues/54#issue-972409063
