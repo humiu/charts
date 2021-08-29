@@ -1,0 +1,65 @@
+apiVersion: v1
+entries:
+  traefik-helmchart-wrapper:
+  - apiVersion: v2
+    appVersion: 0.10.6
+    created: "2021-08-29T12:55:36.051147299Z"
+    description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
+      Traefik CRD resources
+    digest: 323dbd70398fafd5932a3cd7892a6a33f1ae696308e73b7cf82026be74e08847
+    home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+    keywords:
+    - helm
+    - helm-controller
+    - helmchart
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: traefik-helmchart-wrapper
+    sources:
+    - https://github.com/k3s-io/helm-controller
+    - https://github.com/traefik/traefik-helm-chart
+    urls:
+    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.5.3/traefik-helmchart-wrapper-0.5.3.tgz
+    version: 0.5.3
+  wordpress-nginx-cache:
+  - apiVersion: v2
+    appVersion: 5.8.0
+    created: "2021-08-29T12:55:36.193172484Z"
+    dependencies:
+    - name: wordpress
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.x.x
+    description: Wordpress with an NGINX FastCGI caching layer in front of it.
+    digest: 0cbebe1ef7c8390394643c3291942f99ca93a0ae6727f70347eca138e2f9afa4
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - nginx
+    - fastcgi
+    - cache
+    - cached
+    - wordpress cache
+    - nginx cache
+    - wordpress nginx cache
+    - nginx fastcgi
+    - fastcgi cache
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-nginx-cache
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.0.2/wordpress-nginx-cache-0.0.2.tgz
+    version: 0.0.2
+generated: "2021-08-29T12:55:36.193179084Z"
