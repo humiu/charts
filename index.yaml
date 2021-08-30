@@ -3,6 +3,30 @@ entries:
   traefik-helmchart-wrapper:
   - apiVersion: v2
     appVersion: 0.10.6
+    created: "2021-08-30T13:29:29.280156541Z"
+    description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
+      Traefik CRD resources
+    digest: 0c80acd371f1a6b71efef769f87331035d2ba40bb432a165b4cc17ed679ca09a
+    home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+    keywords:
+    - helm
+    - helm-controller
+    - helmchart
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: traefik-helmchart-wrapper
+    sources:
+    - https://github.com/k3s-io/helm-controller
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.7.2/traefik-helmchart-wrapper-0.7.2.tgz
+    version: 0.7.2
+  - apiVersion: v2
+    appVersion: 0.10.6
     created: "2021-08-30T12:08:20.021562642Z"
     description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
       Traefik CRD resources
@@ -260,6 +284,35 @@ entries:
   wordpress-traefik:
   - apiVersion: v2
     appVersion: 5.8.0
+    created: "2021-08-30T13:29:29.483496313Z"
+    description: Wordpress with Traefik CRD resources to expose it.
+    digest: 3816640c60bbb070b889e7a2c8346a9941d3475938db66446a33e423acb68450
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-traefik
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.3.1/wordpress-traefik-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 5.8.0
     created: "2021-08-30T12:39:00.584442619Z"
     description: Wordpress with Traefik CRD resources to expose it.
     digest: 35140768547cb232e84e684f8db8cd7032cc7f666544ecfe0682bbd66deab9d0
@@ -432,4 +485,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2021-08-30T12:39:00.584482919Z"
+generated: "2021-08-30T13:29:29.483552914Z"
