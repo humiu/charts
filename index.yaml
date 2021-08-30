@@ -3,6 +3,30 @@ entries:
   traefik-helmchart-wrapper:
   - apiVersion: v2
     appVersion: 0.10.6
+    created: "2021-08-30T12:08:20.021562642Z"
+    description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
+      Traefik CRD resources
+    digest: 9e9fbe7883d4f87f56d3c7664a726e41261afb932edef4abe58a1b63100fe3bf
+    home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+    keywords:
+    - helm
+    - helm-controller
+    - helmchart
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: traefik-helmchart-wrapper
+    sources:
+    - https://github.com/k3s-io/helm-controller
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.7.1/traefik-helmchart-wrapper-0.7.1.tgz
+    version: 0.7.1
+  - apiVersion: v2
+    appVersion: 0.10.6
     created: "2021-08-29T19:31:27.76093685Z"
     description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
       Traefik CRD resources
@@ -123,6 +147,44 @@ entries:
   wordpress-nginx-cache:
   - apiVersion: v2
     appVersion: 5.8.0
+    created: "2021-08-30T12:08:20.159254577Z"
+    dependencies:
+    - name: wordpress
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.x.x
+    description: Wordpress with an NGINX FastCGI caching layer in front of it.
+    digest: 581d74f55b89218cfd2980eb314552bf811403024845e6befeead6fb904ed9ec
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - nginx
+    - fastcgi
+    - cache
+    - cached
+    - wordpress cache
+    - nginx cache
+    - wordpress nginx cache
+    - nginx fastcgi
+    - fastcgi cache
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-nginx-cache
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.1.1/wordpress-nginx-cache-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 5.8.0
     created: "2021-08-29T13:37:55.902854838Z"
     dependencies:
     - name: wordpress
@@ -198,6 +260,35 @@ entries:
   wordpress-traefik:
   - apiVersion: v2
     appVersion: 5.8.0
+    created: "2021-08-30T12:08:20.283087984Z"
+    description: Wordpress with Traefik CRD resources to expose it.
+    digest: acd4422c65bea5f6ddc45e20af9ce025e0f58f192f6cfc991a10788938edda6e
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-traefik
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.2.1/wordpress-traefik-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 5.8.0
     created: "2021-08-29T20:33:06.15248718Z"
     description: Wordpress with Traefik CRD resources to expose it.
     digest: 3923171ac7b1914cef7850e2edde4c13a94e4f9deeda3a1cd3118748a23334d1
@@ -254,4 +345,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2021-08-29T20:33:06.152507682Z"
+generated: "2021-08-30T12:08:20.28324419Z"
