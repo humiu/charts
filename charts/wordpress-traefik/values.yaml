@@ -11,7 +11,7 @@ namespace:
   resourcePolicy: keep
 
 traefikHelmchartWrapper:
-  version: 0.7.1
+  version: 0.7.2
 
 wordpressValues:
   wordpressUsername: user

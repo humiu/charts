@@ -4,7 +4,7 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
-  name: {{ print ( include "name.unquoted" ( dict "value" . "context" $ ) ) "-wordpress-traefik" | quote }}
+  name: {{ print $.Release.Name "-wordpress" | quote }}
   namespace: kube-system
 spec:
   repo: https://humiu.github.io/charts
@@ -23,8 +23,10 @@ spec:
         chart: wordpress-nginx-cache
         values:
           wordpress:
-            fullnameOverride: {{ $.Release.Name }}-{{ .name }}
+            fullnameOverride: {{ print $.Release.Name "-wordpress-" .name | quote }}
             {{- toYaml $.Values.wordpressValues | nindent 12 }}
+          mariadb:
+            fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
       {{- end }}
 
     traefik:

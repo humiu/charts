@@ -10,6 +10,11 @@
 {{- end }}
 
 {{/* Generate the name for a resource. */}}
+{{- define "name.unquoted" }}
+{{- .value.name | default ( print ( .value.namePrefix | default "" ) .context.Release.Name ( .value.nameSuffix | default "" ) ) }}
+{{- end }}
+
+{{/* Generate the name for a resource. */}}
 {{- define "name" }}
-{{- .value.name | default ( print ( .value.namePrefix | default "" ) .context.Release.Name ( .value.nameSuffix | default "" ) ) | quote }}
+{{- include "name.unquoted" $ | quote }}
 {{- end }}
