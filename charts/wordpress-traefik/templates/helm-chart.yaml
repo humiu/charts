@@ -4,7 +4,7 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
-  name: {{ template "name" ( dict "value" . "context" $ ) }}
+  name: {{ template "name" ( dict "value" . "context" $ ) }}-wordpress-traefik
   namespace: kube-system
 spec:
   repo: https://humiu.github.io/charts
