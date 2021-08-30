@@ -24,6 +24,7 @@ keywords:
 dependencies:
   - name: wordpress
     repository: https://charts.bitnami.com/bitnami
+    # https://github.com/bitnami/charts/blob/master/bitnami/wordpress/Chart.yaml#L38
     version: 12.x.x
 sources:
   - https://github.com/bitnami/bitnami-docker-wordpress-nginx

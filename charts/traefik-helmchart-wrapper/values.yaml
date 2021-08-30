@@ -5,10 +5,6 @@ namespace:
   # The "name" field is optional. If empty or not provided the helm release name will be used instead.
   # Instead of providing the full namespace you can also use "namePrefix" or "nameSuffix" to use the helm release name and prefix and/or suffix.
   name: ""
-  # The "create" property defines whether to create the namespace or not.
-  # Can always be enabled ("true") since this chart automatically recognizes if the namespace already exists or not.
-  # This setting is only necessary when using this chart as a subchart of another helm chart.
-  create: true
   # The "resourcePolicy" field is optional. If it's set to "keep" the namespace WILL NOT be deleted when the chart is being uninstalled.
   # If resourcePolicy is set to an empty string ("") the namespace WILL BE DELETED on uninstall! Only do this if your helm chart is the
   # only application in this namespace or when you're 100% sure that you want to delete all other resources in this namespace as well!

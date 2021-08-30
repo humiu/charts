@@ -1,7 +1,12 @@
 
 {{/* Generate the namespace. */}}
+{{- define "namespace.unquoted" }}
+{{- .Values.namespace.name | default ( print ( .Values.namespace.namePrefix | default "" ) .Release.Name ( .Values.namespace.nameSuffix | default "" ) ) }}
+{{- end }}
+
+{{/* Generate the namespace. */}}
 {{- define "namespace" }}
-{{- .Values.namespace.name | default ( print ( .Values.namespace.namePrefix | default "" ) .Release.Name ( .Values.namespace.nameSuffix | default "" ) ) | quote }}
+{{- include "namespace.unquoted" $ | quote }}
 {{- end }}
 
 {{/* Generate the name for a resource. */}}
