@@ -9,7 +9,7 @@ metadata:
 spec:
   repo: https://humiu.github.io/charts
   chart: traefik-helmchart-wrapper
-  version: {{ .wordpressNginxCache.version | quote }}
+  version: {{ .traefikHelmchartWrapper.version | quote }}
   targetNamespace: kube-system
   valuesContent: |
 

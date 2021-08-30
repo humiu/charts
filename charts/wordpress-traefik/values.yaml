@@ -10,8 +10,8 @@ namespace:
   # only application in this namespace or when you're 100% sure that you want to delete all other resources in this namespace as well!
   resourcePolicy: keep
 
-wordpressNginxCache:
-  version: 0.6.0
+traefikHelmchartWrapper:
+  version: 0.7.1
 
 wordpressValues:
   wordpressUsername: user

@@ -1,5 +1,5 @@
 apiVersion: v2
-version: 0.2.2
+version: 0.2.3
 appVersion: 5.8.0
 name: wordpress-traefik
 description: Wordpress with Traefik CRD resources to expose it.
