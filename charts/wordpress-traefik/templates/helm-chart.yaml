@@ -35,8 +35,10 @@ spec:
         {{- $subdomain := ( empty .subdomain ) | ternary "" ( print .subdomain "." ) }}
         {{- $domain := print $subdomain $.Values.domain.main }}
         {{- $aliases := "" }}
+        {{- $nocacheAliases := "" }}
         {{- range $.Values.domain.aliases }}
         {{- $aliases = print $aliases " || HostRegexp(`{host:(www.)?}" $subdomain . "`)" }}
+        {{- $nocacheAliases = print $nocacheAliases " || HostRegexp(`{host:(www.)?}nocache." $subdomain . "`)" }}
         {{- end }}
         - nameSuffix: -{{ .name }}
           entryPoints:
@@ -53,7 +55,7 @@ spec:
                   serversTransport:
                     nameSuffix: -no-cert-check
             - kind: Rule
-              match: "HostRegexp(`{host:(www.)?}nocache.{{ $domain }}`){{ $aliases }}"
+              match: "HostRegexp(`{host:(www.)?}nocache.{{ $domain }}`){{ $nocacheAliases }}"
               middlewares:
                 - nameSuffix: "-redirect-www"
               services:
