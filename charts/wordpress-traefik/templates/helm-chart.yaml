@@ -33,13 +33,17 @@ spec:
       ingressRoutes:
         {{- range .environments }}
         {{- $subdomain := ( empty .subdomain ) | ternary "" ( print .subdomain "." ) }}
-        {{- $domain := print $subdomain $.Values.domain }}
+        {{- $domain := print $subdomain $.Values.domain.main }}
+        {{- $aliases := "" }}
+        {{- range $.Values.domain.aliases }}
+        {{- $aliases = print $aliases " || HostRegexp(`{host:(www.)?}" $subdomain . "`)" }}
+        {{- end }}
         - nameSuffix: -{{ .name }}
           entryPoints:
             - websecure
           routes:
             - kind: Rule
-              match: HostRegexp(`{host:(www.)?}{{ $domain }}`)
+              match: "HostRegexp(`{host:(www.)?}{{ $domain }}`){{ $aliases }}"
               middlewares:
                 - nameSuffix: "-redirect-www"
               services:
@@ -49,7 +53,7 @@ spec:
                   serversTransport:
                     nameSuffix: -no-cert-check
             - kind: Rule
-              match: HostRegexp(`{host:(www.)?}nocache.{{ $domain }}`)
+              match: "HostRegexp(`{host:(www.)?}nocache.{{ $domain }}`){{ $aliases }}"
               middlewares:
                 - nameSuffix: "-redirect-www"
               services:
@@ -61,9 +65,13 @@ spec:
           tls:
             certResolver: letsencrypt
             domains:
-              - main: {{ $domain }}
+              - main: "{{ $domain }}"
                 sans:
-                  - nocache.{{ $domain }}
+                  - {{ print "nocache." $domain | quote }}
+                  {{- range $.Values.domain.aliases }}
+                  - {{ print $subdomain . | quote }}
+                  - {{ print "nocache." $subdomain . | quote }}
+                  {{- end }}
         {{- end }}
 
       middlewares:

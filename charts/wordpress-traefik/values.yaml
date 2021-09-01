@@ -17,7 +17,11 @@ wordpressValues:
   wordpressUsername: user
   wordpressPassword: password
 
-domain: example.com
+domain:
+  main: example.com
+  aliases:
+    - example.co.uk
+    - another-domain.com
 
 environments:
   - name: prod
