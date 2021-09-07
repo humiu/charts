@@ -16,6 +16,7 @@ traefikHelmchartWrapper:
 magentoValues:
   service:
     type: "ClusterIP"
+    port: 80
 
 environments:
   - name: prod

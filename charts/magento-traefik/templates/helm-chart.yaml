@@ -24,6 +24,8 @@ spec:
         values:
           {{- toYaml $.Values.magentoValues | nindent 10 }}
           fullnameOverride: {{ print $.Release.Name "-magento-" .name | quote }}
+          {{- $subdomain := ( empty .subdomain ) | ternary "" ( print .subdomain "." ) }}
+          magentoHost: {{ print $subdomain $.Values.domain.main }}
           {{/*
           This is not working yet because the fullname is not generated correctly
           See here: https://github.com/bitnami/charts/blob/f88d9fae4eaeba918df2aec7a76efb268e3d0318/bitnami/magento/templates/_helpers.tpl#L24
@@ -52,10 +54,7 @@ spec:
                 - nameSuffix: "-redirect-www"
               services:
                 - nameSuffix: -{{ .name }}
-                  port: 8443
-                  scheme: https
-                  serversTransport:
-                    nameSuffix: -no-cert-check
+                  port: 80
           tls:
             certResolver: letsencrypt
             domains:
@@ -74,9 +73,5 @@ spec:
             regex: ^https?://www.(.*)
             replacement: https://${1}
             permanent: true
-
-      serversTransports:
-        - nameSuffix: -no-cert-check
-          insecureSkipVerify: true
 
 {{- end }}
