@@ -1,5 +1,34 @@
 apiVersion: v1
 entries:
+  magento-traefik:
+  - apiVersion: v2
+    appVersion: 2.4.3
+    created: "2021-09-07T14:46:29.213256567Z"
+    description: Magento with Traefik CRD resources to expose it.
+    digest: 15da9b69870b1df3eaa008b4111ec3b560a9b7aead9789c5dcef04eee0e47c44
+    home: https://github.com/humiu/charts/tree/main/charts/magento-traefik
+    keywords:
+    - ecommerce
+    - shop
+    - online-shop
+    - php
+    - web
+    - application
+    - magento
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: magento-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/bitnami/charts/tree/master/bitnami/magento
+    - https://magento.com
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/magento-traefik-0.1.0/magento-traefik-0.1.0.tgz
+    version: 0.1.0
   traefik-helmchart-wrapper:
   - apiVersion: v2
     appVersion: 0.10.6
@@ -282,6 +311,35 @@ entries:
     - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.0.2/wordpress-nginx-cache-0.0.2.tgz
     version: 0.0.2
   wordpress-traefik:
+  - apiVersion: v2
+    appVersion: 5.8.0
+    created: "2021-09-07T14:46:29.36607317Z"
+    description: Wordpress with Traefik CRD resources to expose it.
+    digest: 48b44231ec6cbfb3970b3457d86fe68ffd30644c85ac7fa552192f98e2cfcca4
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-traefik
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.4.3/wordpress-traefik-0.4.3.tgz
+    version: 0.4.3
   - apiVersion: v2
     appVersion: 5.8.0
     created: "2021-09-07T14:22:30.447781284Z"
@@ -572,4 +630,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2021-09-07T14:22:30.447853884Z"
+generated: "2021-09-07T14:46:29.366192971Z"
