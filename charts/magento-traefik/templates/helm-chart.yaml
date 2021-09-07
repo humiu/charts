@@ -1,0 +1,75 @@
+
+{{- with .Values }}
+
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: {{ print $.Release.Name "-magento" | quote }}
+  namespace: kube-system
+spec:
+  repo: https://humiu.github.io/charts
+  chart: traefik-helmchart-wrapper
+  version: {{ .traefikHelmchartWrapper.version | quote }}
+  targetNamespace: kube-system
+  valuesContent: |
+
+    namespace:
+      name: {{ template "namespace" $ }}
+
+    helmCharts:
+      {{- range .environments }}
+      - nameSuffix: -{{ .name }}
+        repo: https://charts.bitnami.com/bitnami
+        chart: magento
+        values:
+          {{- toYaml $.Values.magentoValues | nindent 10 }}
+          fullnameOverride: {{ print $.Release.Name "-magento-" .name | quote }}
+          mariadb:
+            fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
+      {{- end }}
+
+    traefik:
+      ingressRoutes:
+        {{- range .environments }}
+        {{- $subdomain := ( empty .subdomain ) | ternary "" ( print .subdomain "." ) }}
+        {{- $domain := print $subdomain $.Values.domain.main }}
+        {{- $aliases := "" }}
+        {{- range $.Values.domain.aliases }}
+        {{- $aliases = print $aliases " || HostRegexp(`{host:(www.)?}" $subdomain . "`)" }}
+        {{- end }}
+        - nameSuffix: -{{ .name }}
+          entryPoints:
+            - websecure
+          routes:
+            - kind: Rule
+              match: "HostRegexp(`{host:(www.)?}{{ $domain }}`){{ $aliases }}"
+              middlewares:
+                - nameSuffix: "-redirect-www"
+              services:
+                - nameSuffix: -{{ .name }}
+                  port: 8443
+                  scheme: https
+                  serversTransport:
+                    nameSuffix: -no-cert-check
+          tls:
+            certResolver: letsencrypt
+            domains:
+              - main: "{{ $domain }}"
+                sans:
+                  {{- range $.Values.domain.aliases }}
+                  - {{ print $subdomain . | quote }}
+                  {{- end }}
+        {{- end }}
+
+      middlewares:
+        - nameSuffix: -redirect-www
+          redirectRegex:
+            regex: ^https?://www.(.*)
+            replacement: https://${1}
+            permanent: true
+
+      serversTransports:
+        - nameSuffix: -no-cert-check
+          insecureSkipVerify: true
+
+{{- end }}

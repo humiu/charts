@@ -1,0 +1,25 @@
+apiVersion: v2
+version: 0.1.0
+appVersion: 2.4.3
+name: magento-traefik
+description: Magento with Traefik CRD resources to expose it.
+home: https://github.com/humiu/charts/tree/main/charts/magento-traefik
+type: application
+keywords:
+  - ecommerce
+  - shop
+  - online-shop
+  - php
+  - web
+  - application
+  - magento
+  - traefik
+  - ingressroute
+sources:
+  - https://github.com/traefik/traefik-helm-chart
+  - https://github.com/bitnami/charts/tree/master/bitnami/magento
+  - https://magento.com
+maintainers:
+  - name: Paul Miu
+    email: paul@humiu.io
+engine: gotpl

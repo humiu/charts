@@ -13,9 +13,9 @@ namespace:
 traefikHelmchartWrapper:
   version: 0.7.2
 
-wordpressValues:
-  wordpressUsername: user
-  wordpressPassword: password
+magentoValues:
+  service:
+    type: "ClusterIP"
 
 environments:
   - name: prod
