@@ -17,6 +17,8 @@ magentoValues:
   service:
     type: "ClusterIP"
     port: 80
+  magentoUseHttps: true
+  magentoUseSecureAdmin: true
 
 environments:
   - name: prod
