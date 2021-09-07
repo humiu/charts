@@ -24,8 +24,13 @@ spec:
         values:
           {{- toYaml $.Values.magentoValues | nindent 10 }}
           fullnameOverride: {{ print $.Release.Name "-magento-" .name | quote }}
+          {{/*
+          This is not working yet because the fullname is not generated correctly
+          See here: https://github.com/bitnami/charts/blob/f88d9fae4eaeba918df2aec7a76efb268e3d0318/bitnami/magento/templates/_helpers.tpl#L24
+
           mariadb:
             fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
+          */}}
       {{- end }}
 
     traefik:
