@@ -23,10 +23,10 @@ spec:
         chart: wordpress-nginx-cache
         values:
           wordpress:
-            fullnameOverride: {{ print $.Release.Name "-wordpress-" .name | quote }}
             {{- toYaml $.Values.wordpressValues | nindent 12 }}
-          mariadb:
-            fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
+            fullnameOverride: {{ print $.Release.Name "-wordpress-" .name | quote }}
+            mariadb:
+              fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
       {{- end }}
 
     traefik:
