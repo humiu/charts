@@ -3,6 +3,34 @@ entries:
   magento-traefik:
   - apiVersion: v2
     appVersion: 2.4.3
+    created: "2021-09-07T15:31:39.919637276Z"
+    description: Magento with Traefik CRD resources to expose it.
+    digest: 0755fb2aa01d4a3888d50041d1154367003a819465e9bd77b431f17e5c15a3e9
+    home: https://github.com/humiu/charts/tree/main/charts/magento-traefik
+    keywords:
+    - ecommerce
+    - shop
+    - online-shop
+    - php
+    - web
+    - application
+    - magento
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: magento-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/bitnami/charts/tree/master/bitnami/magento
+    - https://magento.com
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/magento-traefik-0.1.1/magento-traefik-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 2.4.3
     created: "2021-09-07T14:46:29.213256567Z"
     description: Magento with Traefik CRD resources to expose it.
     digest: 15da9b69870b1df3eaa008b4111ec3b560a9b7aead9789c5dcef04eee0e47c44
@@ -311,6 +339,35 @@ entries:
     - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.0.2/wordpress-nginx-cache-0.0.2.tgz
     version: 0.0.2
   wordpress-traefik:
+  - apiVersion: v2
+    appVersion: 5.8.0
+    created: "2021-09-07T15:31:40.114805034Z"
+    description: Wordpress with Traefik CRD resources to expose it.
+    digest: 09a96170d9c9a73fbee57c2dd09e795c57a5d11c53a4d58ea2f7a217de3a0adf
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-traefik
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.4.4/wordpress-traefik-0.4.4.tgz
+    version: 0.4.4
   - apiVersion: v2
     appVersion: 5.8.0
     created: "2021-09-07T14:46:29.36607317Z"
@@ -630,4 +687,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2021-09-07T14:46:29.366192971Z"
+generated: "2021-09-07T15:31:40.114899435Z"
