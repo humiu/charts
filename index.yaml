@@ -3,6 +3,34 @@ entries:
   magento-traefik:
   - apiVersion: v2
     appVersion: 2.4.3
+    created: "2021-09-07T17:59:51.574283064Z"
+    description: Magento with Traefik CRD resources to expose it.
+    digest: 493d8be5c5653793e29f45c23518f67c722e0d738e3d09473119425e52387b74
+    home: https://github.com/humiu/charts/tree/main/charts/magento-traefik
+    keywords:
+    - ecommerce
+    - shop
+    - online-shop
+    - php
+    - web
+    - application
+    - magento
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: magento-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/bitnami/charts/tree/master/bitnami/magento
+    - https://magento.com
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/magento-traefik-0.2.0/magento-traefik-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 2.4.3
     created: "2021-09-07T16:17:05.225099667Z"
     description: Magento with Traefik CRD resources to expose it.
     digest: e7623de56a8eee8df6dbffe9e9019953da4cbb28607a75e31656fdfcfc371070
@@ -715,4 +743,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2021-09-07T16:17:05.225164867Z"
+generated: "2021-09-07T17:59:51.57447137Z"
