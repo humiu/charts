@@ -60,10 +60,12 @@ spec:
             certResolver: letsencrypt
             domains:
               - main: "{{ $domain }}"
+                {{- if $.Values.domain.aliases }}
                 sans:
                   {{- range $.Values.domain.aliases }}
                   - {{ print $subdomain . | quote }}
                   {{- end }}
+                {{- end }}
         {{- end }}
 
       middlewares:
