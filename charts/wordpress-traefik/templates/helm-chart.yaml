@@ -20,7 +20,7 @@ spec:
       {{- range .environments }}
       - nameSuffix: -{{ .name }}
         repo: https://humiu.github.io/charts
-        chart: wordpress-nginx-cache
+        chart: {{ $.Values.chartName | quote }}
         values:
           wordpress:
             {{- toYaml $.Values.wordpressValues | nindent 12 }}
@@ -70,7 +70,7 @@ spec:
                   serversTransport:
                     nameSuffix: -no-cert-check
           tls:
-            certResolver: letsencrypt
+            certResolver: {{ $.Values.certResolver | quote }}
             domains:
               - main: "{{ $domain }}"
                 sans:
