@@ -1,0 +1,25 @@
+apiVersion: v2
+version: 0.1.0
+appVersion: bleeding # Check here: https://gitlab.com/gitlab-org/charts/gitlab-runner/-/blob/main/Chart.yaml#L4
+name: gitlab-runner-cached
+description: GitLab Runner with a docker-in-docker integration to cache images.
+home: https://github.com/humiu/charts/tree/main/charts/gitlab-runner-cached
+type: application
+keywords:
+  - devops
+  - pipeline
+  - build
+  - gitlab
+  - gitlab runner
+  - cache
+  - gitlab runner cache
+  - gitlab runner cached
+sources:
+  - https://docs.gitlab.com/runner/
+  - https://gitlab.com/gitlab-org/charts/gitlab-runner
+  - https://docs.gitlab.com/runner/install/kubernetes.html
+  - https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
+maintainers:
+  - name: Paul Miu
+    email: paul@humiu.io
+engine: gotpl

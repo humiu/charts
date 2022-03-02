@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "dind-{{ .Release.Name }}"
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  selector:
+    matchLabels:
+      app: dind
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: dind
+    spec:
+      containers:
+        - name: dind
+          image: docker:dind
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: dind
+              containerPort: 2375
+          env:
+            - name: DOCKER_HOST
+              value: tcp://localhost:2375
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          securityContext:
+            privileged: true
+          volumeMounts:
+            {{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+            - name: dind-cache
+              mountPath: /var/lib/docker
+            {{- end }}
+            - name: config-empty-dir-volume
+              mountPath: "/etc/docker"
+      initContainers:
+        - name: init-docker-daemon-config
+          image: alpine:latest
+          imagePullPolicy: "IfNotPresent"
+          command:
+            - sh
+            - -ce
+            - |
+              cp /configmap/daemon.json /tmp/docker/ && \
+              chmod 755 /tmp/docker && \
+              chmod 660 /tmp/docker/daemon.json
+          volumeMounts:
+            - name: docker-daemon-configmap
+              mountPath: /configmap
+            - name: config-empty-dir-volume
+              mountPath: /tmp/docker
+      volumes:
+        {{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+        - name: dind-cache
+          persistentVolumeClaim:
+            claimName: {{ default "dind-pvc" .Values.persistence.name | quote }}
+        {{- end }}
+        - name: docker-daemon-configmap
+          configMap:
+            name: docker-daemon-config
+        - name: config-empty-dir-volume
+          emptyDir: {}

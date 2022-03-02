@@ -1,0 +1,13 @@
+
+{{- if empty ( lookup "v1" "Namespace" "" .Release.Namespace ) }}
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Release.Namespace }}
+  {{- if .Values.namespaceResourcePolicy }}
+  annotations:
+    "helm.sh/resource-policy": {{ .Values.namespaceResourcePolicy | quote }}
+  {{- end }}
+
+{{- end }}

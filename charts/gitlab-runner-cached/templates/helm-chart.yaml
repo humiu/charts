@@ -1,0 +1,15 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: gitlab-runner-{{ .Release.Name }}
+  namespace: {{ .Release.Namespace | quote }}
+spec:
+  repo: https://charts.gitlab.io
+  chart: gitlab-runner
+  {{- if .Values.gitlabRunnerHelmchartVersion }}
+  version: {{ .Values.gitlabRunnerHelmchartVersion | quote }}
+  {{- end }}
+  targetNamespace: {{ .Release.Namespace | quote }}
+  valuesContent: |
+
+    {{- toYaml .Values.gitlabRunnerValues | nindent 4 }}
