@@ -1,5 +1,5 @@
 apiVersion: v2
-version: 0.1.5
+version: 0.1.6
 # Get the latest gitlab-runner version with this command:
 # helm repo add gitlab https://charts.gitlab.io && helm repo update && helm search repo gitlab/gitlab-runner
 appVersion: 14.8.2
