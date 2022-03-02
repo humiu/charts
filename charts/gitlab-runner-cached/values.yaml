@@ -13,6 +13,8 @@ persistence:
   size: "20Gi"
 
 gitlabRunnerValues:
+  fullnameOverride: gitlab-runner-cached
+
   ## The GitLab Server URL (with protocol) that want to register the runner against
   ## ref: https://docs.gitlab.com/runner/commands/README.html#gitlab-runner-register
   ##
