@@ -3,6 +3,34 @@ entries:
   gitlab-runner-cached:
   - apiVersion: v2
     appVersion: 14.8.2
+    created: "2022-03-02T23:41:13.713279829Z"
+    description: GitLab Runner with a docker-in-docker integration to cache images.
+    digest: cbdc92aa2b84dd6612498aa691a2c64e54dd955ffaff6a55a7e50dcd2a6371eb
+    home: https://github.com/humiu/charts/tree/main/charts/gitlab-runner-cached
+    keywords:
+    - devops
+    - pipeline
+    - build
+    - gitlab
+    - gitlab runner
+    - cache
+    - gitlab runner cache
+    - gitlab runner cached
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: gitlab-runner-cached
+    sources:
+    - https://docs.gitlab.com/runner/
+    - https://gitlab.com/gitlab-org/charts/gitlab-runner
+    - https://docs.gitlab.com/runner/install/kubernetes.html
+    - https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/gitlab-runner-cached-0.2.0/gitlab-runner-cached-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 14.8.2
     created: "2022-03-02T23:07:35.049582464Z"
     description: GitLab Runner with a docker-in-docker integration to cache images.
     digest: 9a26302771aa747e6b7fd9aedcd6409eec378c158886989bdd8dde92e1388104
@@ -1284,4 +1312,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2022-03-02T23:07:35.049707662Z"
+generated: "2022-03-02T23:41:13.713424829Z"
