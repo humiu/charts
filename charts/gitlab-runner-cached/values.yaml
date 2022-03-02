@@ -31,6 +31,9 @@ gitlabRunnerValues:
   ## be retrieved from your GitLab Instance.
   ## ref: https://docs.gitlab.com/runner/register/#requirements
   ##
+  ## Get it from:
+  ## GitLab Project -> Settings -> CI/CD -> Runners -> Specific runners -> "And this registration token:"
+  ##
   # runnerRegistrationToken: ""
 
   ## The Runner Token for adding new Runners to the GitLab Server. This must
