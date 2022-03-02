@@ -1,6 +1,8 @@
 apiVersion: v2
-version: 0.1.0
-appVersion: bleeding # Check here: https://gitlab.com/gitlab-org/charts/gitlab-runner/-/blob/main/Chart.yaml#L4
+version: 0.1.1
+# Get the latest gitlab-runner version with this command:
+# helm repo add gitlab https://charts.gitlab.io && helm repo update && helm search repo gitlab/gitlab-runner
+appVersion: 14.8.2
 name: gitlab-runner-cached
 description: GitLab Runner with a docker-in-docker integration to cache images.
 home: https://github.com/humiu/charts/tree/main/charts/gitlab-runner-cached

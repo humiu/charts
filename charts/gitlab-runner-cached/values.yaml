@@ -3,7 +3,9 @@
 # only application in this namespace or when you're 100% sure that you want to delete all other resources in this namespace as well!
 namespaceResourcePolicy: keep
 
-gitlabRunnerHelmchartVersion: 0.38.0-beta
+# Get the latest version with this command:
+# helm repo add gitlab https://charts.gitlab.io && helm repo update && helm search repo gitlab/gitlab-runner
+gitlabRunnerHelmchartVersion: 0.38.1
 
 persistence:
   enabled: true
@@ -18,7 +20,7 @@ gitlabRunnerValues:
 
   ## The Registration Token for adding new Runners to the GitLab Server. This must
   ## be retrieved from your GitLab Instance.
-  ## ref: https://docs.gitlab.com/ce/ci/runners/README.html
+  ## ref: https://docs.gitlab.com/runner/register/#requirements
   ##
   # runnerRegistrationToken: ""
 
