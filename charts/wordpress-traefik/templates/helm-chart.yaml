@@ -20,18 +20,14 @@ spec:
       {{- range .environments }}
       - nameSuffix: -{{ .name }}
         repo: https://humiu.github.io/charts
-        chart: {{ $.Values.chartName | quote }}
+        chart: {{ $.Values.wordpressHelmchart.name | quote }}
+        version: {{ $.Values.wordpressHelmchart.version | quote }}
         values:
           wordpress:
             {{- toYaml $.Values.wordpressValues | nindent 12 }}
             fullnameOverride: {{ print $.Release.Name "-wordpress-" .name | quote }}
-            {{/*
-            This is not working yet because the fullname is not generated correctly
-            See here: https://github.com/bitnami/charts/blob/f88d9fae4eaeba918df2aec7a76efb268e3d0318/bitnami/magento/templates/_helpers.tpl#L24
-
             mariadb:
               fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
-            */}}
       {{- end }}
 
     traefik:

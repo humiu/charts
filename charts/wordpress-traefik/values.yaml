@@ -13,9 +13,11 @@ namespace:
 traefikHelmchartWrapper:
   version: 0.7.2
 
-chartName: wordpress-nginx-cache
+wordpressHelmchart:
+  name: wordpress-nginx-cache
+  version: 0.2.0
 
-certResolver: letsencrypt
+certResolver: letsencryptHttpProd
 
 wordpressValues:
   wordpressUsername: user

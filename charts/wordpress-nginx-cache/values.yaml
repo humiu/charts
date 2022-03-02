@@ -2,7 +2,7 @@ wordpress:
   image:
     repository: bitnami/wordpress-nginx
     # https://hub.docker.com/r/bitnami/wordpress-nginx/tags?page=1&ordering=last_updated
-    tag: 5.8.0
+    tag: 5.9.1
 
   extraVolumes:
     - name: nginx-fastcgi-config

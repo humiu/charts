@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 data:
   fastcgi-cache.conf: |
+
     # Fix failing redirect issue. See here: https://github.com/bitnami/bitnami-docker-wordpress-nginx/issues/54#issue-972409063
     absolute_redirect off;
 
