@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: docker-daemon-config
-  namespace: {{ .Release.Namespace | quote }}
+  namespace: {{ template "namespace" $ }}
 data:
   daemon.json: |
     {

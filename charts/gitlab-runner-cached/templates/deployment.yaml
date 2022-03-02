@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: "dind-{{ .Release.Name }}"
-  namespace: {{ .Release.Namespace | quote }}
+  namespace: {{ template "namespace" $ }}
 spec:
   selector:
     matchLabels:

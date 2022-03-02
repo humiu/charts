@@ -5,7 +5,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ default "dind-pvc" .Values.persistence.name | quote }}
-  namespace: {{ .Release.Namespace | quote }}
+  namespace: {{ template "namespace" $ }}
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
