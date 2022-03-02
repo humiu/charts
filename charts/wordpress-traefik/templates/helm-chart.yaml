@@ -24,7 +24,9 @@ spec:
         version: {{ $.Values.wordpressHelmchart.version | quote }}
         values:
           wordpress:
+            {{- if $.Values.wordpressValues }}
             {{- toYaml $.Values.wordpressValues | nindent 12 }}
+            {{- end }}
             fullnameOverride: {{ print $.Release.Name "-wordpress-" .name | quote }}
             mariadb:
               fullnameOverride: {{ print $.Release.Name "-mariadb-" .name | quote }}
@@ -34,6 +36,9 @@ spec:
       ingressRoutes:
         {{- range .environments }}
         {{- $subdomain := ( empty .subdomain ) | ternary "" ( print .subdomain "." ) }}
+        {{- if not (($.Values.domain).main) }}
+        {{- fail "\n\n\tA domain name is required!\n\tSet the domain name with --set domain.main=example.com or add it to your values.yaml file." }}
+        {{- end }}
         {{- $domain := print $subdomain $.Values.domain.main }}
         {{- $aliases := "" }}
         {{- $nocacheAliases := "" }}
