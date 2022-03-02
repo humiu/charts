@@ -17,11 +17,11 @@ wordpressHelmchart:
   name: wordpress-nginx-cache
   version: 0.2.1
 
-certResolver: letsencryptHttpProd
+certResolver: letsencryptTlsProd
 
-wordpressValues:
-  wordpressUsername: user
-  wordpressPassword: password
+# wordpressValues:
+#   wordpressUsername: user
+#   wordpressPassword: password
 
 environments:
   - name: prod
