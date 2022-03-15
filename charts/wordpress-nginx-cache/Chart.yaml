@@ -1,6 +1,6 @@
 apiVersion: v2
-version: 0.2.1
-appVersion: 5.9.1
+version: 0.3.0
+appVersion: 5.9.2
 name: wordpress-nginx-cache
 description: Wordpress with an NGINX FastCGI caching layer in front of it.
 home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
@@ -33,4 +33,3 @@ sources:
 maintainers:
   - name: Paul Miu
     email: paul@humiu.io
-engine: gotpl

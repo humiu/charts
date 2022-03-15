@@ -1,5 +1,5 @@
 apiVersion: v2
-version: 0.2.1
+version: 0.2.2
 appVersion: 2.4.3
 name: magento-traefik
 description: Magento with Traefik CRD resources to expose it.
@@ -22,4 +22,3 @@ sources:
 maintainers:
   - name: Paul Miu
     email: paul@humiu.io
-engine: gotpl
