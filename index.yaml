@@ -3,6 +3,34 @@ entries:
   gitlab-runner-cached:
   - apiVersion: v2
     appVersion: 14.8.2
+    created: "2022-03-15T14:21:55.731861005Z"
+    description: GitLab Runner with a docker-in-docker integration to cache images.
+    digest: df1a99f42f9b2ff34073df73e0a7e16007460200194141a64acfa56d46bb6011
+    home: https://github.com/humiu/charts/tree/main/charts/gitlab-runner-cached
+    keywords:
+    - devops
+    - pipeline
+    - build
+    - gitlab
+    - gitlab runner
+    - cache
+    - gitlab runner cache
+    - gitlab runner cached
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: gitlab-runner-cached
+    sources:
+    - https://docs.gitlab.com/runner/
+    - https://gitlab.com/gitlab-org/charts/gitlab-runner
+    - https://docs.gitlab.com/runner/install/kubernetes.html
+    - https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/gitlab-runner-cached-0.2.1/gitlab-runner-cached-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 14.8.2
     created: "2022-03-02T23:41:13.713279829Z"
     description: GitLab Runner with a docker-in-docker integration to cache images.
     digest: cbdc92aa2b84dd6612498aa691a2c64e54dd955ffaff6a55a7e50dcd2a6371eb
@@ -256,6 +284,34 @@ entries:
   magento-traefik:
   - apiVersion: v2
     appVersion: 2.4.3
+    created: "2022-03-15T14:21:55.929029289Z"
+    description: Magento with Traefik CRD resources to expose it.
+    digest: 440824d8638be068b0199f2169fa34aba645eef5d87a52d3b6f2909e65c9d877
+    home: https://github.com/humiu/charts/tree/main/charts/magento-traefik
+    keywords:
+    - ecommerce
+    - shop
+    - online-shop
+    - php
+    - web
+    - application
+    - magento
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: magento-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/bitnami/charts/tree/master/bitnami/magento
+    - https://magento.com
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/magento-traefik-0.2.2/magento-traefik-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 2.4.3
     created: "2021-09-07T18:18:47.274503427Z"
     description: Magento with Traefik CRD resources to expose it.
     digest: 9440ed38e3aaf1e6e6345cabcb12c10ccf30ec373f97696d2239e10f9ffde595
@@ -395,6 +451,30 @@ entries:
     - https://github.com/humiu/charts/releases/download/magento-traefik-0.1.0/magento-traefik-0.1.0.tgz
     version: 0.1.0
   traefik-helmchart-wrapper:
+  - apiVersion: v2
+    appVersion: 0.10.6
+    created: "2022-03-15T14:21:56.145113086Z"
+    description: Helm chart wrapper around the Helm Controller HelmChart CRD and the
+      Traefik CRD resources
+    digest: 2678bf9cc0e808f1c8ef82dee2677516785de5e773fa76ba586ff923ceba4076
+    home: https://github.com/humiu/charts/tree/main/charts/traefik-helmchart-wrapper
+    keywords:
+    - helm
+    - helm-controller
+    - helmchart
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: traefik-helmchart-wrapper
+    sources:
+    - https://github.com/k3s-io/helm-controller
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.7.3/traefik-helmchart-wrapper-0.7.3.tgz
+    version: 0.7.3
   - apiVersion: v2
     appVersion: 0.10.6
     created: "2021-08-30T13:29:29.280156541Z"
@@ -563,6 +643,44 @@ entries:
     - https://github.com/humiu/charts/releases/download/traefik-helmchart-wrapper-0.5.3/traefik-helmchart-wrapper-0.5.3.tgz
     version: 0.5.3
   wordpress-nginx-cache:
+  - apiVersion: v2
+    appVersion: 5.9.2
+    created: "2022-03-15T14:21:56.380154597Z"
+    dependencies:
+    - name: wordpress
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.x.x
+    description: Wordpress with an NGINX FastCGI caching layer in front of it.
+    digest: f16b3c10d93443b7d48b255d9eedbab84c4cdfae7865dedf8cb9ecc0cd4c694a
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - nginx
+    - fastcgi
+    - cache
+    - cached
+    - wordpress cache
+    - nginx cache
+    - wordpress nginx cache
+    - nginx fastcgi
+    - fastcgi cache
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-nginx-cache
+    sources:
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.3.0/wordpress-nginx-cache-0.3.0.tgz
+    version: 0.3.0
   - apiVersion: v2
     appVersion: 5.9.1
     created: "2022-03-02T06:51:46.004928414Z"
@@ -790,6 +908,35 @@ entries:
     - https://github.com/humiu/charts/releases/download/wordpress-nginx-cache-0.0.2/wordpress-nginx-cache-0.0.2.tgz
     version: 0.0.2
   wordpress-traefik:
+  - apiVersion: v2
+    appVersion: 5.9.2
+    created: "2022-03-15T14:21:56.543478377Z"
+    description: Wordpress with Traefik CRD resources to expose it.
+    digest: d075239a31786a4bafd5d61863a589362f1c75d7fd91f62eed930581ff865947
+    home: https://github.com/humiu/charts/tree/main/charts/wordpress-traefik
+    keywords:
+    - blog
+    - cms
+    - php
+    - web
+    - application
+    - wordpress
+    - traefik
+    - ingressroute
+    maintainers:
+    - email: paul@humiu.io
+      name: Paul Miu
+    name: wordpress-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/humiu/charts/tree/main/charts/wordpress-nginx-cache
+    - https://github.com/bitnami/bitnami-docker-wordpress-nginx
+    - https://github.com/bitnami/charts/tree/master/bitnami/wordpress
+    - https://wordpress.org/
+    type: application
+    urls:
+    - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.7.0/wordpress-traefik-0.7.0.tgz
+    version: 0.7.0
   - apiVersion: v2
     appVersion: 5.9.1
     created: "2022-03-02T20:17:37.958883207Z"
@@ -1312,4 +1459,4 @@ entries:
     urls:
     - https://github.com/humiu/charts/releases/download/wordpress-traefik-0.0.3/wordpress-traefik-0.0.3.tgz
     version: 0.0.3
-generated: "2022-03-02T23:41:13.713424829Z"
+generated: "2022-03-15T14:21:56.543721879Z"
