@@ -42,10 +42,10 @@ wordpress:
   memcached:
     enabled: false
 
-  # persistence:
-  #   accessModes:
-  #     - ReadWriteOnce
-  #     - ReadWriteMany
+  persistence:
+    accessModes:
+      - ReadWriteOnce
+      - ReadWriteMany
 
   # wordpressSkipInstall: true
 
